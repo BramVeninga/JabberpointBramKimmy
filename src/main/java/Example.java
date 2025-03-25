@@ -15,4 +15,9 @@ public class Example
             System.out.println(CONSTANT);
         }
     }
+
+    public String getField()
+    {
+        return field;
+    }
 }
