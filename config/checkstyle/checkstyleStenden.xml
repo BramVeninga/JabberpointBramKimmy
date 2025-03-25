@@ -5,9 +5,9 @@
 <module name="Checker">
     <module name="TreeWalker">
 
-        <module name="ClassName"/>
+<!--        <module name="ClassName"/>-->
         <module name="MethodName"/>
-        <module name="VariableName"/>
+<!--        <module name="VariableName"/>-->
         <module name="ConstantName"/>
 
         <module name="Indentation">

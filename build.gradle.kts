@@ -12,7 +12,7 @@ repositories {
 
 checkstyle {
     toolVersion = "10.3"
-    configFile = file("${rootDir}/config/checkstyle.xml")
+    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
 }
 
 tasks.withType<Checkstyle>().configureEach {
@@ -29,7 +29,7 @@ tasks.withType<Checkstyle>().configureEach {
 
 tasks.register<Checkstyle>("logCheckstyleConfig") {
     doFirst {
-        println("Using Checkstyle config file: ${file("${rootDir}/config/checkstyle.xml").absolutePath}")
+        println("Using Checkstyle config file: ${file("${rootDir}/config/checkstyle/checkstyle.xml").absolutePath}")
     }
 }
 
