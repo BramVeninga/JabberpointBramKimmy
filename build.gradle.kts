@@ -2,6 +2,7 @@ plugins {
     id("java")
     checkstyle
     id("org.sonarqube") version "6.0.1.5171"
+    id("jacoco")
 }
 
 group = "org.example"
@@ -50,5 +51,22 @@ sonar {
         property("sonar.projectKey", "BramVeninga_JabberpointBramKimmy")
         property("sonar.organization", "bramveninga")
         property("sonar.host.url", "https://sonarcloud.io")
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport) // Zorgt ervoor dat het rapport wordt gegenereerd na tests
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // Zorg ervoor dat tests eerst draaien
+    reports {
+        xml.required.set(true)  // Belangrijk voor SonarCloud!
+        html.required.set(true) // Handig voor lokale debugging
     }
 }

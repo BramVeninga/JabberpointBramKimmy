@@ -64,7 +64,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Tests
-        run: ./gradlew test --continue
+        run: ./gradlew test #add --continue if needed to continue even when test fail
         
   quality:
     name: Code Quality Analysis
