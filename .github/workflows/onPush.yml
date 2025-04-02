@@ -137,7 +137,7 @@ jobs:
         uses: dacbd/create-issue-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: '🚨 Checkstyle Errors Detected'
+          title: '🚨 Pipeline errors detected'
           body: |
             The checkstyle validation failed in the pipeline.  
             Please check the logs and fix any style violations.  

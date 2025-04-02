@@ -6,5 +6,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BramVeninga_JabberpointBramKimmy&metric=coverage)](https://sonarcloud.io/summary/new_code?id=BramVeninga_JabberpointBramKimmy)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=BramVeninga_JabberpointBramKimmy&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=BramVeninga_JabberpointBramKimmy)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=BramVeninga_JabberpointBramKimmy&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=BramVeninga_JabberpointBramKimmy)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 
 ## Project Beschrijving
