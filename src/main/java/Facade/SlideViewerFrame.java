@@ -29,7 +29,7 @@ public class SlideViewerFrame extends JFrame
 
     public static SlideViewerFrame getInstance()
     {
-        if(SlideViewerFrame.slideViewerFrame == null)
+        if (SlideViewerFrame.slideViewerFrame == null)
         {
             SlideViewerFrame.slideViewerFrame = new SlideViewerFrame(JABBERPOINT_TITLE);
         }

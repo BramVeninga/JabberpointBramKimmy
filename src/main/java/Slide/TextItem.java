@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 public class TextItem extends SlideItem
 {
-    private String text;
-
     private static final String EMPTYTEXT = "No Text Given";
+
+    private String text;
 
     // een textitem van level level, met als tekst string
     public TextItem(int level, String string)
@@ -72,7 +72,7 @@ public class TextItem extends SlideItem
 
             ysize += layout.getLeading() + layout.getDescent();
         }
-        return new Rectangle((int) (Style.getIndent()*scale), 0, xsize, ysize );
+        return new Rectangle((int) (Style.getIndent() * scale), 0, xsize, ysize );
     }
 
     // teken het item
@@ -119,6 +119,6 @@ public class TextItem extends SlideItem
 
     public String toString()
     {
-        return "TextItem[" + getLevel()+","+getText()+"]";
+        return "TextItem[" + getLevel() + "," + getText() + "]";
     }
 }

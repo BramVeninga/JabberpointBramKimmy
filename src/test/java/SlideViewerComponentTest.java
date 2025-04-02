@@ -1,4 +1,6 @@
-package Observer;
+import Observer.ControlPresentation;
+import Observer.Presentation;
+import Observer.SlideViewerComponent;
 import Slide.Slide;
 import JabberPoint.JabberPoint;
 import org.junit.jupiter.api.BeforeEach;

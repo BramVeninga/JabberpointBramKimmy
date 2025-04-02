@@ -9,12 +9,15 @@ import java.awt.event.KeyEvent;
 
 public class KeyController extends KeyAdapter
 {
+    private static KeyController keyController;
     // Constants
     private final Command NEXT_SLIDE_COMMAND = new PageDown();
     private final Command PREVIOUS_SLIDE_COMMAND = new PageUp();
     private final Command EXIT_COMMAND = new Exit();
 
-    private static KeyController keyController;
+    private KeyController()
+    {
+    }
 
     public static KeyController getInstance()
     {
@@ -24,10 +27,6 @@ public class KeyController extends KeyAdapter
         }
 
         return KeyController.keyController;
-    }
-
-    private KeyController()
-    {
     }
 
     public void keyPressed(KeyEvent keyEvent)

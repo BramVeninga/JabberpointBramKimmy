@@ -8,7 +8,6 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLOutput;
 
 public class BitmapItem extends SlideItem
 {
@@ -25,17 +24,21 @@ public class BitmapItem extends SlideItem
         super(level);
         this.imageName = imageName;
 
-        try {
+        try
+        {
             this.image = ImageIO.read(new File(imageName));
         }
         catch (IOException exception)
         {
             System.out.println(FILE + this.imageName + NOT_FOUND);
 
-            try {
+            try
+            {
                 this.image = ImageIO.read(new File(NOT_FOUND_IMAGE_PATH));
                 this.imageName = NOT_FOUND_IMAGE_NAME;
-            } catch (IOException notFoundException) {
+            }
+            catch (IOException notFoundException)
+            {
                 System.err.println(FILE + this.imageName + NOT_FOUND);
             }
         }

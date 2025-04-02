@@ -10,22 +10,21 @@ import java.util.ArrayList;
 
 public class MenuController extends MenuBar
 {
-    private static final long serialVersionUID = 227L;
+    public static final String IO_EXCEPTION = "io_exception";
+    public static final String LOAD_ERROR = "load_error";
+    public static final String SAVE_ERROR = "save_error";
+    public static final String SAVE_FILE = "dump.xml";
 
     protected static final String FILE = "File";
     protected static final String VIEW = "View";
     protected static final String DEMO = "Demo";
     protected static final String HELP = "Help";
 
-    public static final String SAVE_FILE = "dump.xml";
-
-    public static final String IO_EXCEPTION = "io_exception";
-    public static final String LOAD_ERROR = "load_error";
-    public static final String SAVE_ERROR = "save_error";
+    private static final long serialVersionUID = 227L;
+    private static MenuController menuController;
 
     private Frame frame;
 
-    private static MenuController menuController;
 
     private MenuController(Frame frame)
     {
@@ -35,7 +34,7 @@ public class MenuController extends MenuBar
 
     public static MenuController getInstance(SlideViewerFrame frame)
     {
-        if(MenuController.menuController == null)
+        if (MenuController.menuController == null)
         {
             MenuController.menuController = new MenuController(frame);
         }
@@ -45,7 +44,7 @@ public class MenuController extends MenuBar
 
     public static MenuController getInstance()
     {
-        if(MenuController.menuController == null)
+        if (MenuController.menuController == null)
         {
             MenuController.menuController = new MenuController(SlideViewerFrame.getInstance());
         }

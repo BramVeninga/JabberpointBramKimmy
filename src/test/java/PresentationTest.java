@@ -1,6 +1,8 @@
-package Observer;
+
 import JabberPoint.JabberPoint;
 
+import Observer.ControlPresentation;
+import Observer.Presentation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

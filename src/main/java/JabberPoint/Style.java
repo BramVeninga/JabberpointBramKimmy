@@ -21,7 +21,7 @@ public class Style
     {
         this.indent = indent;
         this.color = color;
-        font = new Font(FONTNAME, Font.BOLD, fontSize=points);
+        font = new Font(FONTNAME, Font.BOLD, fontSize = points);
         this.leading = leading;
     }
 
@@ -56,7 +56,7 @@ public class Style
 
     public String toString()
     {
-        return "["+ indent + "," + color + "; " + fontSize + " on " + leading +"]";
+        return "[" + indent + "," + color + "; " + fontSize + " on " + leading + "]";
     }
 
     public static void createStyles()

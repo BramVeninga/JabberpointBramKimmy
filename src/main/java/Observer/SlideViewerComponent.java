@@ -86,7 +86,7 @@ public class SlideViewerComponent extends JComponent implements PresentationList
         graphics.setColor(COLOR);                               // Zet de kleur van de tekst
 
         // Als de slide niet geldig is, doe dan niets
-        if(this.slideNumber < 0 || this.slide == null)
+        if (this.slideNumber < 0 || this.slide == null)
         {
             return; // Stop met tekenen als er geen geldige slide is
         }
