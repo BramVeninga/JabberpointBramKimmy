@@ -55,10 +55,10 @@ class SlideTest
     @Test
     public void testBitmapItemWithValidImage_ExpectCorrectImageData()
     {
-        BitmapItem bitmapItem = new BitmapItem(2, "src/main/resources/images/sampleImage.jpg");
+        BitmapItem bitmapItem = new BitmapItem(2, "src/main/resources/hondDemo.jpg");
         assertNotNull(bitmapItem);
         assertEquals(2, bitmapItem.getLevel());
-        assertEquals("src/main/resources/images/sampleImage.jpg", bitmapItem.getName());
+        assertEquals("src/main/resources/hondDemo.jpg", bitmapItem.getName());
     }
 
     @Test
@@ -76,7 +76,7 @@ class SlideTest
         Style style = new Style(0, Color.blue, 14, 12);
         Style.createStyles();
 
-        BitmapItem bitmapItem = new BitmapItem(3, "src/main/resources/images/sampleImage.jpg");
+        BitmapItem bitmapItem = new BitmapItem(3, "src/main/resources/hondDemo.jpg");
         Rectangle boundingBox = bitmapItem.getBoundingBox(null, null, 1.2f, style);
 
         assertNotEquals(null, boundingBox);
