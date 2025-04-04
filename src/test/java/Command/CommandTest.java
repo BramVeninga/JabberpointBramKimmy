@@ -11,7 +11,8 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CommandTests {
+class CommandTests
+{
 
     private ControlPresentation controlPresentation;
     private Presentation presentation;

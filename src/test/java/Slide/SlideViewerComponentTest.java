@@ -1,7 +1,8 @@
+package Slide;
+
 import Observer.ControlPresentation;
 import Observer.Presentation;
 import Observer.SlideViewerComponent;
-import Slide.Slide;
 import JabberPoint.JabberPoint;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,8 @@ class SlideViewerComponentTest {
 
     // Setup method to initialize required components before each test
     @BeforeEach
-    public void setup() throws IOException {
+    public void setup() throws IOException
+    {
         // Initialize JabberPoint to set up the presentation environment
         JabberPoint.initialize(new String[0]);
         // Create a new SlideViewerComponent instance
@@ -24,7 +26,8 @@ class SlideViewerComponentTest {
 
     // Test to ensure that the update method correctly updates the presentation size
     @Test
-    public void update_withControlPresentation_expectsPresentationToBeControlPresentation() {
+    public void update_withControlPresentation_expectsPresentationToBeControlPresentation()
+    {
         // Get the current presentation from ControlPresentation
         Presentation controlPresentation = ControlPresentation.getInstance().getPresentation();
 
@@ -43,7 +46,8 @@ class SlideViewerComponentTest {
 
     // Test to ensure that when no slide is provided, the slide is null
     @Test
-    public void update_withoutSlide_expectsSlideToBeNull() {
+    public void update_withoutSlide_expectsSlideToBeNull()
+    {
         // Call the update method with an empty presentation and null slide
         assertDoesNotThrow(() -> this.slideViewerComponent.update(new Presentation(), null));
 

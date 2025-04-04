@@ -1,3 +1,4 @@
+package Slide;
 
 import JabberPoint.JabberPoint;
 
