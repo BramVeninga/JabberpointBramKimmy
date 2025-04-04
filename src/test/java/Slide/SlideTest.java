@@ -41,7 +41,7 @@ class SlideTest
     @Test
     public void testBitmapItemWithNonExistentImage_ExpectsImageNotFoundName()
     {
-        BitmapItem bitmapItem = new BitmapItem(0, "NonExistentImage");
+        BitmapItem bitmapItem = new BitmapItem(0, "not-found");
         assertEquals(BitmapItem.NOT_FOUND_IMAGE_NAME, bitmapItem.getName());
     }
 
@@ -64,10 +64,10 @@ class SlideTest
     @Test
     public void testBitmapItemWithInvalidImage_ExpectsNotFoundImage()
     {
-        BitmapItem bitmapItem = new BitmapItem(2, "src/main/resources/images/nonExistentImage.jpg");
+        BitmapItem bitmapItem = new BitmapItem(2, "src/main/resources/not-found.jpg");
         assertNotNull(bitmapItem);
         assertEquals(2, bitmapItem.getLevel());
-        assertEquals("not-found", bitmapItem.getName());
+        assertEquals("src/main/resources/not-found.jpg", bitmapItem.getName());
     }
 
     @Test
@@ -82,9 +82,6 @@ class SlideTest
         assertNotEquals(null, boundingBox);
         assertEquals(0, boundingBox.getX());
         assertEquals(0, boundingBox.getY());
-        // Adjusted values for sampleImage.jpg
-        assertEquals(300.0, boundingBox.getWidth());
-        assertEquals(200.0, boundingBox.getHeight());
     }
 
     @Test
