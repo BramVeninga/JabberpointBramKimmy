@@ -14,7 +14,8 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class KeyControllerTest {
+public class KeyControllerTest
+{
 
     private ControlPresentation controlPresentation;
     private Presentation presentation;
@@ -23,7 +24,8 @@ public class KeyControllerTest {
 
     // Initialize the test objects before each test
     @BeforeEach
-    public void setup() throws IOException {
+    public void setup() throws IOException
+    {
         this.keyController = KeyController.getInstance();
         this.dummyComponent = new JFrame();
         JabberPoint.initialize(new String[0]);
@@ -34,7 +36,8 @@ public class KeyControllerTest {
     // Test if pressing "next slide" keys correctly increments the slide number
     @ParameterizedTest
     @ValueSource(ints = {KeyEvent.VK_PAGE_DOWN, KeyEvent.VK_DOWN, KeyEvent.VK_ENTER, '+'})
-    void pressingNextSlideKeys_fromSlide0_expectsSlide1(int keyCode) {
+    void pressingNextSlideKeys_fromSlide0_expectsSlide1(int keyCode)
+    {
         assertEquals(0, this.presentation.getSlideNumber(), "Initial slide number should be 0");
 
         this.keyController.keyPressed(new KeyEvent(this.dummyComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, keyCode, 'a'));
@@ -45,7 +48,8 @@ public class KeyControllerTest {
     // Test if pressing "previous slide" keys correctly decrements the slide number
     @ParameterizedTest
     @ValueSource(ints = {KeyEvent.VK_PAGE_UP, KeyEvent.VK_UP, '-'})
-    void pressingPrevSlideKeys_fromSlide1_expectsSlide0(int keyCode) {
+    void pressingPrevSlideKeys_fromSlide1_expectsSlide0(int keyCode)
+    {
         this.presentation.setSlideNumber(1);
         assertEquals(1, this.presentation.getSlideNumber(), "Initial slide number should be 1");
 

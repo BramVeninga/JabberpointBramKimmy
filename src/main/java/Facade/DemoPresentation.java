@@ -52,7 +52,8 @@ public class DemoPresentation extends Accessor
     }
 
     @Override
-    public void saveFile(Presentation presentation, String unusedFilename) {
+    public void saveFile(Presentation presentation, String unusedFilename)
+    {
         throw new IllegalStateException("Save As->Demo! aangeroepen");
     }
 

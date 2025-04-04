@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccessorTest
 {
-
     private Presentation presentation;
 
     // Setup method to initialize a new Presentation instance before each test

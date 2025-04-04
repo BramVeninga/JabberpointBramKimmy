@@ -40,6 +40,8 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     checkstyle("com.puppycrawl.tools:checkstyle:10.3")
+    testImplementation("org.mockito:mockito-core:5.3.1")
+    testImplementation("org.mockito:mockito-inline:4.8.1")
 }
 
 tasks.test {

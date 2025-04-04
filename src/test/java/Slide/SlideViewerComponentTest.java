@@ -11,7 +11,8 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SlideViewerComponentTest {
+class SlideViewerComponentTest
+{
     private SlideViewerComponent slideViewerComponent;
 
     // Setup method to initialize required components before each test

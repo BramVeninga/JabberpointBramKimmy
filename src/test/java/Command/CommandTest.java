@@ -24,7 +24,8 @@ class CommandTests
 
     // Initialize test objects before each test
     @BeforeEach
-    public void setup() throws IOException {
+    public void setup() throws IOException
+    {
         JabberPoint.initialize(new String[0]);
         this.controlPresentation = ControlPresentation.getInstance();
         this.presentation = this.controlPresentation.getPresentation();
@@ -37,7 +38,8 @@ class CommandTests
 
     // Test if PageUp correctly increments the slide number
     @Test
-    public void executePageUp_fromSlide0_expectsSlide1() {
+    public void executePageUp_fromSlide0_expectsSlide1()
+    {
         assertEquals(0, this.presentation.getSlideNumber(), "Initial slide number should be 0");
         this.pageUpCommand.execute();
         assertEquals(1, this.presentation.getSlideNumber(), "Slide number should increment to 1");
@@ -45,7 +47,8 @@ class CommandTests
 
     // Test if PageDown correctly decrements the slide number
     @Test
-    public void executePageDown_afterPageUp_expectsSlide0() {
+    public void executePageDown_afterPageUp_expectsSlide0()
+    {
         assertEquals(0, this.presentation.getSlideNumber(), "Initial slide number should be 0");
         this.pageUpCommand.execute();
         assertEquals(1, this.presentation.getSlideNumber(), "Slide number should increment to 1");
@@ -55,7 +58,8 @@ class CommandTests
 
     // Test if executing MenuDemoBase loads the demo presentation correctly
     @Test
-    public void executeMenuDemoBase_expectsDemoPresentationLoaded() {
+    public void executeMenuDemoBase_expectsDemoPresentationLoaded()
+    {
         assertDoesNotThrow(() -> this.menuDemoBaseCommand.execute());
         assertEquals("Demo Presentation", this.presentation.getTitle(), "Title should match 'Demo Presentation'");
         assertEquals(4, this.presentation.getSize(), "Demo Presentation should contain 4 slides");
@@ -63,7 +67,8 @@ class CommandTests
 
     // Test if executing MenuDemoImage loads the image demo presentation correctly
     @Test
-    public void executeMenuDemoImage_expectsImageDemoLoaded() {
+    public void executeMenuDemoImage_expectsImageDemoLoaded()
+    {
         assertDoesNotThrow(() -> this.menuDemoImageCommand.execute());
         assertEquals("Image Demo Presentation", this.presentation.getTitle(), "Title should match 'Image Demo Presentation'");
         assertEquals(4, this.presentation.getSize(), "Image Demo should contain 4 slides");
@@ -71,7 +76,8 @@ class CommandTests
 
     // Test if executing MenuDemoPlenair loads the plenary meeting demo correctly
     @Test
-    public void executeMenuDemoSubject_expectsPlenaryDemoLoaded() {
+    public void executeMenuDemoSubject_expectsPlenaryDemoLoaded()
+    {
         assertDoesNotThrow(() -> this.menuDemoSubjectCommand.execute());
         assertEquals("Subject Demo", this.presentation.getTitle(), "Title should match 'Subject Demo'");
         assertEquals(4, this.presentation.getSize(), "Subject Demo should contain 4 slides");

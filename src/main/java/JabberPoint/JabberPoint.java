@@ -40,12 +40,16 @@ public class JabberPoint
     }
 
     // Het hoofdprogramma
-    public static void main(String argv[]) {
-        try {
+    public static void main(String argv[])
+    {
+        try
+        {
             initialize(argv);
             // Maak SlideViewerFrame zichtbaar
             SlideViewerFrame.getInstance().setVisible(true);
-        } catch (IOException exception) {
+        }
+        catch (IOException exception)
+        {
             // Toon een foutmelding
             JOptionPane.showMessageDialog(null, IOERR + exception, JABERR, JOptionPane.ERROR_MESSAGE);
         }
