@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class BitmapItem extends SlideItem
 {
-    protected static final String NOT_FOUND_IMAGE_PATH = "images/NotFound.png";
+    protected static final String NOT_FOUND_IMAGE_PATH = "not-found.jpg";
     protected static final String FILE = "Bestand ";
     protected static final String NOT_FOUND = "niet gevonden";
     protected static final String NOT_FOUND_IMAGE_NAME = "not-found";
