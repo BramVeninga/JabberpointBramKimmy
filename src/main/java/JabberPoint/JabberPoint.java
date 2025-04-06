@@ -8,6 +8,8 @@ import Observer.Presentation;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.awt.GraphicsEnvironment;
+
 
 public class JabberPoint
 {
@@ -45,13 +47,19 @@ public class JabberPoint
         try
         {
             initialize(argv);
-            // Maak SlideViewerFrame zichtbaar
-            SlideViewerFrame.getInstance().setVisible(true);
+
+            if (!GraphicsEnvironment.isHeadless()) {
+                SlideViewerFrame.getInstance().setVisible(true);
+            }
         }
         catch (IOException exception)
         {
-            // Toon een foutmelding
-            JOptionPane.showMessageDialog(null, IOERR + exception, JABERR, JOptionPane.ERROR_MESSAGE);
+            if (!GraphicsEnvironment.isHeadless()) {
+                JOptionPane.showMessageDialog(null, IOERR + exception, JABERR, JOptionPane.ERROR_MESSAGE);
+            } else {
+                System.err.println(IOERR + exception);
+            }
         }
     }
+
 }
