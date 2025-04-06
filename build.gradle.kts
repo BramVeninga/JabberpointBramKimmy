@@ -2,7 +2,7 @@ plugins {
     id("java")
     checkstyle
     id("org.sonarqube") version "6.0.1.5171"
-//    id("jacoco")
+    id("jacoco")
 }
 
 group = "org.example"
@@ -56,22 +56,22 @@ sonar {
     }
 }
 
-//jacoco {
-//    toolVersion = "0.8.8"
-//}
-//
-//tasks.test {
-//    useJUnitPlatform()
-//    finalizedBy(tasks.jacocoTestReport) // Zorgt ervoor dat het rapport wordt gegenereerd na tests
-//}
-//
-//tasks.jacocoTestReport {
-//    dependsOn(tasks.test) // Zorg ervoor dat tests eerst draaien
-//    reports {
-//        xml.required.set(true)  // Belangrijk voor SonarCloud!
-//        html.required.set(true) // Handig voor lokale debugging
-//    }
-//}
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport) // Zorgt ervoor dat het rapport wordt gegenereerd na tests
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // Zorg ervoor dat tests eerst draaien
+    reports {
+        xml.required.set(true)  // Belangrijk voor SonarCloud!
+        html.required.set(true) // Handig voor lokale debugging
+    }
+}
 
 sourceSets {
     test {
