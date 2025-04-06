@@ -64,7 +64,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Tests
-        run: ./gradlew test --continue
+        run: ./gradlew test -Djava.awt.headless=true
 
   quality:
     name: Code Quality Analysis
