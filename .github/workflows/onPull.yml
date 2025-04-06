@@ -92,7 +92,7 @@ jobs:
   create_release:
     runs-on: ubuntu-latest
     needs: create-jar
-    if: github.head_ref == 'develop'  # Alleen uitvoeren als de bronbranch 'develop' is
+    if: github.head_ref == 'develop'
     permissions:
       contents: write
       packages: write
@@ -102,31 +102,40 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        with:
-          tag_name: v${{ secrets.VERSION }}
-          release_name: Release v${{ secrets.VERSION }}
-          body: |
-            Release v${{ secrets.VERSION }}
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set version
+        run: echo "VERSION=0.1.0-$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
-      - name: Download built jar
+      - name: Download built Jar
         uses: actions/download-artifact@v4
         with:
           name: build
           path: staging
 
+      - name: Find JAR name
+        id: find_jar
+        run: |
+          FILE=$(find staging -name "*.jar" | head -n 1)
+          echo "JAR_FILE=$FILE" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v${{ env.VERSION }}
+          release_name: Release v${{ env.VERSION }}
+          body: |
+            Release v${{ env.VERSION }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./staging/*.jar
-          asset_name: MyProject-${{ secrets.VERSION }}.jar
+          asset_path: ${{ env.JAR_FILE }}
+          asset_name: MyProject-${{ env.VERSION }}.jar
           asset_content_type: application/java-archive
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
