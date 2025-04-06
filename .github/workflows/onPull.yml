@@ -104,7 +104,7 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v4
+        uses: actions/create-release@v1
         with:
           tag_name: v${{ secrets.VERSION }}
           release_name: Release v${{ secrets.VERSION }}
@@ -114,6 +114,12 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download built jar
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: staging
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
