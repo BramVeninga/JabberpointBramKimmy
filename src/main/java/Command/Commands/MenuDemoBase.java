@@ -35,22 +35,8 @@ public class MenuDemoBase implements Command
 
         try
         {
-            // 1. Haal de presentatie op
             Presentation presentation = ControlPresentation.getInstance().getPresentation();
-
-            // 2. Voeg opnieuw de viewer toe als listener
-            SlideViewerComponent viewer = MenuController.getInstance().getViewerComponent();
-            presentation.addPresentationListener(viewer);
-
-            // 3. Laad demo
             demoPresentation.loadFile(presentation, null);
-
-            System.out.println("Aantal slides geladen: " + presentation.getSize());
-            if (presentation.getSize() > 0) {
-                System.out.println("Eerste slide title: " + presentation.getSlide(0).getTitle());
-            }
-
-            // 4. Zet eerste slide zichtbaar
             presentation.setSlideNumber(0);
         }
         catch (IOException exception)
@@ -59,6 +45,6 @@ public class MenuDemoBase implements Command
                     MenuController.getInstance().getLoadError(), JOptionPane.ERROR_MESSAGE);
         }
 
-        frame.repaint(); // Herteken het scherm
+        frame.repaint();
     }
 }

@@ -52,7 +52,7 @@ public class Presentation
     // Stel het huidige slide nummer in en update de luisteraars
     public void setSlideNumber(int number)
     {
-        currentSlideNumber = number;
+        this.currentSlideNumber = number;
         this.updatePresentationListeners();
     }
 
@@ -99,13 +99,18 @@ public class Presentation
     // Retourneer een slide op basis van de gegeven index
     public Slide getSlide(int indexOfSlide)
     {
-        return this.slideList.get(indexOfSlide);  // Geef de slide op de gegeven index terug
+        if (indexOfSlide <  0 || indexOfSlide >= getSize())
+        {
+            return null;
+        }
+
+        return (Slide) this.slideList.get(indexOfSlide);
     }
 
     // Retourneer de huidige slide die getoond wordt
     public Slide getCurrentSlide()
     {
-        return this.slideList.get(currentSlideNumber);  // Geef de slide terug die op het huidige nummer staat
+       return this.getSlide(this.currentSlideNumber);
     }
 
     // Retourneer het huidige slide nummer
