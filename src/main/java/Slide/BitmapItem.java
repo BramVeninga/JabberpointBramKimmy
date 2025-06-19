@@ -26,7 +26,7 @@ public class BitmapItem extends SlideItem
 
         try
         {
-            this.image = ImageIO.read(new File(imageName));
+            this.image = ImageIO.read(new File(this.imageName));
         }
         catch (IOException exception)
         {

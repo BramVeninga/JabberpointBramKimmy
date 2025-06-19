@@ -2,6 +2,7 @@ package Command;
 
 import Command.Commands.*;
 import Facade.SlideViewerFrame;
+import Observer.SlideViewerComponent;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,10 +11,10 @@ import java.util.ArrayList;
 
 public class MenuController extends MenuBar
 {
-    public static final String IO_EXCEPTION = "io_exception";
-    public static final String LOAD_ERROR = "load_error";
-    public static final String SAVE_ERROR = "save_error";
-    public static final String SAVE_FILE = "dump.xml";
+    private static final String IO_EXCEPTION = "io_exception";
+    private static final String LOAD_ERROR = "load_error";
+    private static final String SAVE_ERROR = "save_error";
+    private static final String SAVE_FILE = "dump.xml";
 
     protected static final String FILE = "File";
     protected static final String VIEW = "View";
@@ -24,6 +25,7 @@ public class MenuController extends MenuBar
     private static MenuController menuController;
 
     private Frame frame;
+    private SlideViewerComponent viewerComponent;
 
 
     private MenuController(Frame frame)
@@ -50,6 +52,36 @@ public class MenuController extends MenuBar
         }
 
         return MenuController.menuController;
+    }
+
+    public String getIoException()
+    {
+        return IO_EXCEPTION;
+    }
+
+    public String getLoadError()
+    {
+        return LOAD_ERROR;
+    }
+
+    public String getSaveError()
+    {
+        return SAVE_ERROR;
+    }
+
+    public String getSaveFile()
+    {
+        return SAVE_FILE;
+    }
+
+    public void setViewerComponent(SlideViewerComponent viewerComponent)
+    {
+        this.viewerComponent = viewerComponent;
+    }
+
+    public SlideViewerComponent getViewerComponent()
+    {
+        return this.viewerComponent;
     }
 
     private void setupMenuItems()

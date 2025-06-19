@@ -6,11 +6,21 @@ import java.io.IOException;
 
 public abstract class Accessor
 {
-    public static final String DEMO_NAME = "Demonstratie presentatie";
-    public static final String DEFAULT_EXTENSION = ".xml";
+    private static final String DEMO_NAME = "Demonstratie presentatie";
+    private static final String DEFAULT_EXTENSION = ".xml";
 
     public Accessor()
     {
+    }
+
+    public String getDemoName()
+    {
+        return DEMO_NAME;
+    }
+
+    public String getDefaultExtension()
+    {
+        return DEFAULT_EXTENSION;
     }
 
     abstract public void loadFile(Presentation presentation, String filename) throws IOException;

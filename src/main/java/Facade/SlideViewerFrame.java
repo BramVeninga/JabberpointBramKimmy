@@ -2,6 +2,7 @@ package Facade;
 
 import Command.KeyController;
 import Command.MenuController;
+import Observer.ControlPresentation;
 import Observer.SlideViewerComponent;
 
 import javax.swing.*;
@@ -23,6 +24,7 @@ public class SlideViewerFrame extends JFrame
         super(title);
 
         SlideViewerComponent slideViewerComponent = new SlideViewerComponent(this);
+        ControlPresentation.getInstance().getPresentation().addPresentationListener(slideViewerComponent);
 
         this.setupWindow(slideViewerComponent);
     }

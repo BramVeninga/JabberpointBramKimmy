@@ -41,7 +41,7 @@ public class MenuOpen implements Command
         }
         catch (IOException exception)
         {
-            JOptionPane.showMessageDialog(frame, MenuController.IO_EXCEPTION + exception, MenuController.LOAD_ERROR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(frame, MenuController.getInstance().getIoException() + exception, MenuController.getInstance().getLoadError(), JOptionPane.ERROR_MESSAGE);
         }
         frame.repaint();
     }
