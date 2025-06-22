@@ -6,6 +6,7 @@ import Facade.Accessor;
 import Facade.DemoPresentation;
 import Observer.ControlPresentation;
 import Observer.Presentation;
+import Observer.SlideViewerComponent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,9 +29,10 @@ public class MenuDemoBase implements Command
     @Override
     public void execute()
     {
-        ControlPresentation.getInstance().clear();
+        ControlPresentation.getInstance().clear(); // Maakt presentatie leeg
         Frame frame = MenuController.getInstance().getFrame();
         Accessor demoPresentation = new DemoPresentation();
+
         try
         {
             Presentation presentation = ControlPresentation.getInstance().getPresentation();
@@ -39,8 +41,10 @@ public class MenuDemoBase implements Command
         }
         catch (IOException exception)
         {
-            JOptionPane.showMessageDialog(frame, MenuController.IO_EXCEPTION + exception, MenuController.LOAD_ERROR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(frame, MenuController.getInstance().getIoException() + exception,
+                    MenuController.getInstance().getLoadError(), JOptionPane.ERROR_MESSAGE);
         }
+
         frame.repaint();
     }
 }

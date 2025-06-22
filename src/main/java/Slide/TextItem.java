@@ -121,4 +121,10 @@ public class TextItem extends SlideItem
     {
         return "TextItem[" + getLevel() + "," + getText() + "]";
     }
+
+    @Override
+    public String toXML() {
+        return "<item kind=\"text\" level=\"" + getLevel() + "\">" + getText() + "</item>";
+    }
+
 }

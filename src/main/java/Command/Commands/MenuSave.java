@@ -29,11 +29,11 @@ public class MenuSave implements Command
         Accessor xmlAccessor = new XMLAccessor();
         try
         {
-            xmlAccessor.saveFile(ControlPresentation.getInstance().getPresentation(), MenuController.SAVE_FILE);
+            xmlAccessor.saveFile(ControlPresentation.getInstance().getPresentation(), MenuController.getInstance().getSaveFile());
         }
         catch (IOException exception)
         {
-            JOptionPane.showMessageDialog(MenuController.getInstance().getFrame(), MenuController.IO_EXCEPTION + exception, MenuController.SAVE_ERROR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(MenuController.getInstance().getFrame(), MenuController.getInstance().getIoException() + exception, MenuController.getInstance().getLoadError(), JOptionPane.ERROR_MESSAGE);
         }
     }
 }

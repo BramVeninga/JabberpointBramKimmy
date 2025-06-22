@@ -33,4 +33,7 @@ public abstract class SlideItem
 
     // Tekent het item
     public abstract void draw(int x, int y, float scale, Graphics graphics, Style style, ImageObserver imageObserver);
+
+    public abstract String toXML();
+
 }

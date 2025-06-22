@@ -1,10 +1,13 @@
 package JabberPoint;
 
 import Command.Commands.MenuDemoBase;
+import Command.MenuController;
 import Facade.SlideViewerFrame;
 import Facade.XMLAccessor;
 import Observer.ControlPresentation;
 import Observer.Presentation;
+import Observer.SlideViewerComponent;
+import Slide.Slide;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -17,20 +20,18 @@ public class JabberPoint
     protected static final String IOERR = "IO Error: ";
     protected static final String JABERR = "Jabberpoint Error ";
 
-    public static void initialize(String[] argv) throws IOException
-    {
-        // Creëer de verschillende stijlen
+    public static void initialize(String[] argv) throws IOException {
+        // Creëer de stijlen
         Style.createStyles();
 
-        // Creëer de presentatie
+        // Maak de presentatie aan
         Presentation presentation = new Presentation();
 
-        // Haal de ControlPresentation op en zet de presentatie erin
+        // Zet de presentatie in het control singleton
         ControlPresentation controlPresentation = ControlPresentation.getInstance();
         controlPresentation.setPresentation(presentation);
 
-        // Probeer de presentatie te laden
-        if (argv.length == 0)
+        if(argv.length == 0)
         {
             new MenuDemoBase().execute();
         }
@@ -38,6 +39,7 @@ public class JabberPoint
         {
             new XMLAccessor().loadFile(presentation, argv[0]);
         }
+
         presentation.setSlideNumber(0);
     }
 
@@ -47,18 +49,11 @@ public class JabberPoint
         try
         {
             initialize(argv);
-
-            if (!GraphicsEnvironment.isHeadless()) {
-                SlideViewerFrame.getInstance().setVisible(true);
-            }
+            SlideViewerFrame.getInstance().setVisible(true);
         }
         catch (IOException exception)
         {
-            if (!GraphicsEnvironment.isHeadless()) {
-                JOptionPane.showMessageDialog(null, IOERR + exception, JABERR, JOptionPane.ERROR_MESSAGE);
-            } else {
-                System.err.println(IOERR + exception);
-            }
+            JOptionPane.showMessageDialog(null, MenuController.getInstance().getIoException() + exception, MenuController.getInstance().getLoadError(), JOptionPane.ERROR_MESSAGE);
         }
     }
 
