@@ -95,8 +95,8 @@ public class MenuController extends MenuBar
 
         // Alle "View" menu-items
         ArrayList<Command> viewCommands = new ArrayList<Command>();
-        viewCommands.add(new PageDown());
-        viewCommands.add(new PageUp());
+        viewCommands.add(new Previous());
+        viewCommands.add(new Next());
         viewCommands.add(new GoToPage());
 
         // Alle "Demo" menu-items

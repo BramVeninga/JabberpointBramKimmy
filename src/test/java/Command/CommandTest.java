@@ -16,8 +16,8 @@ class CommandTests
 
     private ControlPresentation controlPresentation;
     private Presentation presentation;
-    private PageUp pageUpCommand;
-    private PageDown pageDownCommand;
+    private Next nextCommand;
+    private Previous previousCommand;
     private MenuDemoBase menuDemoBaseCommand;
     private MenuDemoImage menuDemoImageCommand;
     private MenuDemoSubject menuDemoSubjectCommand;
@@ -29,8 +29,8 @@ class CommandTests
         JabberPoint.initialize(new String[0]);
         this.controlPresentation = ControlPresentation.getInstance();
         this.presentation = this.controlPresentation.getPresentation();
-        this.pageUpCommand = new PageUp();
-        this.pageDownCommand = new PageDown();
+        this.nextCommand = new Next();
+        this.previousCommand = new Previous();
         this.menuDemoBaseCommand = new MenuDemoBase();
         this.menuDemoImageCommand = new MenuDemoImage();
         this.menuDemoSubjectCommand = new MenuDemoSubject();
@@ -41,7 +41,7 @@ class CommandTests
     public void executePageUp_fromSlide0_expectsSlide1()
     {
         assertEquals(0, this.presentation.getSlideNumber(), "Initial slide number should be 0");
-        this.pageUpCommand.execute();
+        this.nextCommand.execute();
         assertEquals(1, this.presentation.getSlideNumber(), "Slide number should increment to 1");
     }
 
@@ -50,9 +50,9 @@ class CommandTests
     public void executePageDown_afterPageUp_expectsSlide0()
     {
         assertEquals(0, this.presentation.getSlideNumber(), "Initial slide number should be 0");
-        this.pageUpCommand.execute();
+        this.nextCommand.execute();
         assertEquals(1, this.presentation.getSlideNumber(), "Slide number should increment to 1");
-        this.pageDownCommand.execute();
+        this.previousCommand.execute();
         assertEquals(0, this.presentation.getSlideNumber(), "Slide number should decrement back to 0");
     }
 
