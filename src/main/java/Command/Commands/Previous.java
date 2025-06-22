@@ -3,23 +3,23 @@ package Command.Commands;
 import Command.Command;
 import Observer.ControlPresentation;
 
-public class PageUp implements Command
+public class Previous implements Command
 {
     @Override
     public String getLabel()
     {
-        return "Next slide";
+        return "Previous slide";
     }
 
     @Override
     public char getShortcut()
     {
-        return '.';
+        return ',';
     }
 
     @Override
     public void execute()
     {
-        ControlPresentation.getInstance().nextSlide();
+        ControlPresentation.getInstance().previousSlide();
     }
 }

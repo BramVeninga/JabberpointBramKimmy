@@ -26,7 +26,7 @@ public class BitmapItem extends SlideItem
 
         try
         {
-            this.image = ImageIO.read(new File(imageName));
+            this.image = ImageIO.read(new File(this.imageName));
         }
         catch (IOException exception)
         {
@@ -74,4 +74,10 @@ public class BitmapItem extends SlideItem
     {
         return "BitmapItem[" + this.imageName + "]";
     }
+
+    @Override
+    public String toXML() {
+        return "<item kind=\"image\" level=\"" + getLevel() + "\">" + getName() + "</item>";
+    }
+
 }

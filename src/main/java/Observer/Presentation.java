@@ -53,7 +53,7 @@ public class Presentation
     public void setSlideNumber(int number)
     {
         this.currentSlideNumber = number;
-        this.updatePresentationListeners();  // Breng de luisteraars op de hoogte van de wijziging
+        this.updatePresentationListeners();
     }
 
     // Retourneert de grootte van de slide lijst (aantal slides)
@@ -79,33 +79,38 @@ public class Presentation
     {
         for (PresentationListener presentationListener : this.presentationListeners)
         {
-            presentationListener.update(this, this.getCurrentSlide());  // Informeer elke listener over de huidige slide
+            presentationListener.update(this, this.getCurrentSlide());
         }
     }
 
     // Wis alle slides en stel het huidige slide nummer in op -1 (geen slide)
     public void clear()
     {
-        this.slideList = new ArrayList<Slide>();  // Maak de lijst van slides leeg
-        this.setSlideNumber(-1);  // Stel het slide nummer in op -1 (geen actieve slide)
+        this.slideList = new ArrayList<Slide>();
+        this.setSlideNumber(-1);
     }
 
     // Voeg een slide toe aan de presentatie
     public void append(Slide slide)
     {
-        this.slideList.add(slide);  // Voeg de slide toe aan de lijst van slides
+        this.slideList.add(slide);
     }
 
     // Retourneer een slide op basis van de gegeven index
     public Slide getSlide(int indexOfSlide)
     {
-        return this.slideList.get(indexOfSlide);  // Geef de slide op de gegeven index terug
+        if (indexOfSlide <  0 || indexOfSlide >= getSize())
+        {
+            return null;
+        }
+
+        return (Slide) this.slideList.get(indexOfSlide);
     }
 
     // Retourneer de huidige slide die getoond wordt
     public Slide getCurrentSlide()
     {
-        return this.slideList.get(currentSlideNumber);  // Geef de slide terug die op het huidige nummer staat
+       return this.getSlide(this.currentSlideNumber);
     }
 
     // Retourneer het huidige slide nummer
